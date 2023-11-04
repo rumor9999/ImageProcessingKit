@@ -1,0 +1,6 @@
+huggingface-hub
+ultralytics
+opencv-python-headless
+Pillow
+toml
+argparse

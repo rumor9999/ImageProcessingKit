@@ -1,0 +1,21 @@
+# 处理前数据集路径
+input_dataset_path = "D:/StableDiffusion/Train/lora"
+
+# 处理后数据集路径
+output_dataset_path = "D:/StableDiffusion/toolkit/output"
+
+#重新命名並隨機排序
+rename_and_random_sort = true
+
+#圖片超過這個大小會被依照比例縮小
+enable_resize_image = true 
+image_max_size = 1536 
+
+#是否要啟用增生
+[data_augmentation]
+enable_data_augmentation = true 
+num_rotations = 5 #旋轉次數
+num_crops = 5 #裁切次數
+num_contrasts = 5 #對比變更次數
+num_brightnesses = 0 #亮度變更次數
+
