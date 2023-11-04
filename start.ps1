@@ -6,13 +6,14 @@ $scriptDir = $PSScriptRoot
 # 设置虚拟环境目录和项目目录
 $venvDir = Join-Path $scriptDir "venv"  # 在脚本目录下创建venv目录
 
+# 激活虚拟环境
+$venvScript = Join-Path $venvDir "Scripts\Activate"
+
 # 检查是否已经存在虚拟环境目录
 if (-Not (Test-Path $venvDir -PathType Container)) {
     # 创建虚拟环境
     python -m venv $venvDir
 
-    # 激活虚拟环境
-    $venvScript = Join-Path $venvDir "Scripts\Activate"
     cmd /c $venvScript
 
     # 安装所需依赖项
@@ -23,5 +24,7 @@ if (-Not (Test-Path $venvDir -PathType Container)) {
 } else {
     Write-Host "venv exists."
 }
+
+cmd /c $venvScript
 
 py .\main.py
