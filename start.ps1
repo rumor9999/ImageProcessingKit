@@ -1,25 +1,25 @@
 Write-Host "create venv..."
 
-# 获取脚本所在的目录
+# Get the directory where the script is located
 $scriptDir = $PSScriptRoot
 
-# 设置虚拟环境目录和项目目录
-$venvDir = Join-Path $scriptDir "venv"  # 在脚本目录下创建venv目录
+# Set the virtual environment directory and project directory
+$venvDir = Join-Path $scriptDir "venv"  # Create the venv directory under the script directory
 
-# 激活虚拟环境
+# Activate the virtual environment
 $venvScript = Join-Path $venvDir "Scripts\Activate"
 
-# 检查是否已经存在虚拟环境目录
+# Check if the virtual environment directory already exists
 if (-Not (Test-Path $venvDir -PathType Container)) {
-    # 创建虚拟环境
+    # Create a virtual environment
     python -m venv $venvDir
 
     cmd /c $venvScript
 
-    # 安装所需依赖项
+    # Install the required dependencies
     pip install -r "requirements.txt"
 
-    # 打印成功消息
+    # Print a success message
     Write-Host "create venv done."
 } else {
     Write-Host "venv exists."
